@@ -1,0 +1,11 @@
+div.jumbotron{
+    margin: 0px;
+    padding: 2rem;
+    background-color: #8eaeda;
+    color: #fff;
+}
+
+#select{
+    width:50%;
+   
+}

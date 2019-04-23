@@ -13,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-interceptor.service';
+import { ConstructorService } from './constructor.service';
+import { ConstructorsComponent } from './constructors/constructors.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-inte
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ConstructorsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-inte
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
-  }],
+  }, ConstructorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

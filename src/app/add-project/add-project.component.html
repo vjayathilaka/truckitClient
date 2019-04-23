@@ -1,3 +1,53 @@
+
+<div class="jumbotron">
+  
+<h2 class="text-center" > Add Projects here..</h2>
+
+<form class="border border-light p-5">
+
+<div class="w3-half">
+  <input type="name" [(ngModel)]="project.name" id="name" class="form-control" placeholder="Enter project  name" name="name">
+
+  <input type="location" id="defaultRegisterFormLastName" class="form-control" placeholder="Enter project location">
+
+  <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+  
+  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+</div>
+
+  <div class="input-group mb-4">
+      <div class="input-group-prepend">
+          <span class="input-group-text">Upload</span>
+      </div>
+      <div class="custom-file">
+          <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
+          <label class="custom-file-label" for="fileInput">prject plan</label>
+      </div>
+  </div>
+
+
+         <select class="browser-default custom-select mb-4" id="select">
+               <option value="" disabled="" selected="">Project type</option>
+                <option value="1">New Project</option>
+                <option value="2">Reported issue</option>
+                
+        </select>
+
+        <div class="textarea">
+        <label for="textarea">Project discription</label>
+        <textarea id="textarea" class="form-control mb-4" placeholder="Textarea"></textarea>
+      </div>
+
+        <button class="btn btn-success" (click)="createProject()" type="submit">Add project</button>
+        
+
+      </form>
+   
+</div>
+
+
+
+<!--
 <div class="col-md-6">
     <h2 class="text-center">Add Project</h2>
     <form>
@@ -8,3 +58,5 @@
       <button class="btn btn-success" (click)="createProject()">Create</button>
     </form>
     </div>
+
+    -->
