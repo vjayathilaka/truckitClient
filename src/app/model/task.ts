@@ -3,6 +3,6 @@ export class Task{
       public id:String,
       public name:string,
       public creator:string,
-      public comments: string[]
+      public comments: Comment[]
     ) {}
 }
