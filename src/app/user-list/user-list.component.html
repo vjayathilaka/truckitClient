@@ -14,17 +14,20 @@
     <table class="table table-striped">
           <thead>
             <tr>
-              
+              <th>ID</th>
               <th>User Name</th>
               
               <th>User Email</th>
+              <th>User Role Type</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
               <tr *ngFor="let user of users">
+                <td><a >{{user.id}}</a></td>
                 <td><a [routerLink]="">{{user.name | titlecase}}</a></td>
                 <td><a href="{{user.email}}">{{user.email}}</a></td>
+                <td><a >{{user.userRole}}</a></td>
                 <td><button class="btn btn-danger" (click)="deleteuser(user)"> Delete</button></td>
               </tr>
           </tbody>

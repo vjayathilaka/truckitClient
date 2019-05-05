@@ -39,6 +39,14 @@
                                 </div>
 
                                 <div class="form-group">
+                                  <label >Select User Type</label>
+                                      <select class="custom-select" name="topic" [(ngModel)]="user.userRole">
+                                        <option value=""> User Type</option>
+                                        <option *ngFor="let topic of topics"> {{topic}}</option>
+                                      </select>
+                                </div>
+
+                                <div class="form-group">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
     
                                         <div class="col-lg-9">

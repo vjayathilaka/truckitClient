@@ -10,6 +10,8 @@ import { UserService } from '../services/user.service';
 })
 export class UserRegistrationComponent implements OnInit {
 
+  topics = ['PM', 'Eng',' Client','Constructor'];
+
   user: User= new User('','','','','');
 
   constructor(private userService: UserService) { }

@@ -13,12 +13,14 @@ import { ConstructorsComponent } from './constructors/constructors.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 
 
 const routes: Routes = [
   { path: '', component: ProjectComponent, canActivate:[AuthGuardService]},
   { path: 'addProject', component: AddProjectComponent,  canActivate:[AuthGuardService]},
+  { path: 'addtask', component: AddTaskComponent, canActivate:[AuthGuardService]},
   { path: 'login', component: LoginComponent },
   { path: 'signin', component: UserRegistrationComponent, canActivate:[AuthGuardService]},
   { path: 'userlist', component: UserListComponent, canActivate:[AuthGuardService]},
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'viewTask/:id', component: ViewTaskComponent, canActivate:[AuthGuardService]},
   { path: 'constructors', component: ConstructorsComponent, canActivate:[AuthGuardService]},
   { path: 'userprofile', component: UserProfileComponent, canActivate:[AuthGuardService]}
+
 ];
 
 @NgModule({

@@ -21,6 +21,8 @@ import { ViewTaskComponent } from './view-task/view-task.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { AddIssuesComponent } from './add-issues/add-issues.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { UserListComponent } from './user-list/user-list.component';
     ViewTaskComponent,
     UserProfileComponent,
     UserRegistrationComponent,
-    UserListComponent
+    UserListComponent,
+    AddTaskComponent,
+    AddIssuesComponent
 
   ],
   imports: [

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Task } from '../model/task';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,4 +16,11 @@ export class TaskService {
   public getTaskById(id){
     return this.httpClient.get<Task>(this.url+'/'+id);
   }
+
+  public createTask(task) {
+    return this.httpClient.post<Task>(this.url,task);
+  }
+
+
+
 }
