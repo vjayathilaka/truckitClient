@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstructorService } from '../constructor.service';
 
 @Component({
   selector: 'app-constructors',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConstructorsComponent implements OnInit {
 
-  constructor() { }
+  public constructors = [];
+
+  constructor(private _constructorService: ConstructorService) { }
 
   ngOnInit() {
+    this._constructorService.getConstructors()
+            .subscribe(data => this.constructors = data);
   }
 
 }

@@ -13,8 +13,15 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-interceptor.service';
+
 import { ConstructorService } from './constructor.service';
 import { ConstructorsComponent } from './constructors/constructors.component';
+import { ViewProjectComponent } from './view-project/view-project.component';
+import { ViewTaskComponent } from './view-task/view-task.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { UserListComponent } from './user-list/user-list.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +32,13 @@ import { ConstructorsComponent } from './constructors/constructors.component';
     FooterComponent,
     LoginComponent,
     LogoutComponent,
-    ConstructorsComponent
+    ConstructorsComponent,
+    ViewProjectComponent,
+    ViewTaskComponent,
+    UserProfileComponent,
+    UserRegistrationComponent,
+    UserListComponent
+
   ],
   imports: [
     BrowserModule,

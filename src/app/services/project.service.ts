@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Project } from '../model/project';
 
@@ -7,6 +7,8 @@ import { Project } from '../model/project';
   providedIn: 'root'
 })
 export class ProjectService {
+
+  url:string = 'http://localhost:9090/projects';
 
   constructor(private httpClient:HttpClient) { }
 
@@ -22,5 +24,9 @@ export class ProjectService {
 
   public createProject(project) {
     return this.httpClient.post<Project>("http://localhost:9090/projects", project);
+  }
+
+  public getProjectById(id){
+    return this.httpClient.get<Project>(this.url+'/'+id);
   }
 }

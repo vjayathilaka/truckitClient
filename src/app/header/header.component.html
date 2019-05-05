@@ -7,6 +7,10 @@
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Projects</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addProject" class="nav-link">Add New Project</a></li>
       <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/signin" class="nav-link">User Registration</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userlist" class="nav-link">System Users</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/constructors" class="nav-link">Constructors</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userprofile" class="nav-link">UserProfile</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
     
     </ul>

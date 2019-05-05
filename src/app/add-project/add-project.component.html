@@ -1,4 +1,4 @@
-
+<div class="container">         
 <div class="jumbotron">
   
 <h2 class="text-center" > Add Projects here..</h2>
@@ -45,6 +45,8 @@
    
 </div>
 
+</div>
+
 
 
 <!--
@@ -54,6 +56,11 @@
       <div class="form-group">
         <label for="name">Name:</label>
         <input type="name" [(ngModel)]="project.name" placeholder="Name" name="name" class="form-control" id="name">
+
+        <button class="btn btn-success" (click)="createProject()">Add Task</button>
+        <ul class="list-group" *ngFor="let task of project.tasks">
+            <li class="list-group-item">{{task.name}}</li>
+        </ul>
       </div>
       <button class="btn btn-success" (click)="createProject()">Create</button>
     </form>

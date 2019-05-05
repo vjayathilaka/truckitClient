@@ -1,4 +1,40 @@
-<div class="container">
+<!--
+<div class="row">
+    <div class="col s8 offset-s2">
+        <div class="card">
+            <div class="sm-jombotron center-align">
+                <h2>User Registration</h2>
+            </div>
+              <form  class="col s12 white" #userRegistrationForm="ngForm">
+                  <div class="row">
+                        <div class="input-field col s12">
+                            <input class="validate" type="text" name="username"  [(ngModel)]="username" required>
+                            <label data-error="Required Feild!">UserName</label>
+                        </div>
+                  
+                        <div class="input-field col s12">
+                            <input class="validate" type="password" name="password"  [(ngModel)]="password" required minlength="3">
+                            <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required feild!':'Minimum 3 characters needed'):''">Password</label>
+                        </div>
+                    </div>
+                        
+                   
+        
+
+                  
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" (click)=checkLogin() >Login</button>
+                      </div>
+                  </div>
+              </form>
+        </div>
+    </div>
+</div>
+  -->
+
+<!--
+<div class="jumbotron">
   <form class="border border-light p-5">
 
       <p class="h4 mb-4 text-center">Sign in</p>
@@ -10,3 +46,57 @@
       <button class="btn btn-info btn-block my-4" (click)=checkLogin()>Login</button>
   </form>
 </div>
+
+-->
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">Welcome To Truckit</h2>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+
+                    <!-- form card login -->
+                    <div class="card rounded-0">
+                        <div class="card-header">
+                            <h3 class="text-center mb-0">Login</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                                <div class="form-group">
+                                    <label for="uname1">Username</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="username" [(ngModel)]="username" id="uname1" required="">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" name="password" [(ngModel)]="password" required="" autocomplete="new-password">
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+                               
+                                <button type="submit" class="btn btn-success btn-lg float-right" (click)=checkLogin() id="btnLogin">Login</button>
+                            </form>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                    <!-- /form card login -->
+
+                </div>
+
+
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+</div>
+<!--
+     <div>
+                                    <label class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input">
+                                      <span class="custom-control-indicator"></span>
+                                      <span class="custom-control-description small text-dark">Remember me on this computer</span>
+                                    </label>
+                                </div>/container-->
