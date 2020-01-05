@@ -10,7 +10,8 @@
             <div class="form-group row">
               <label for="text1" class="col-2 col-form-label">Task Name:</label> 
               <div class="col-6">
-                  <label for="text1" class="col-6 col-form-label">{{task.name |titlecase}}</label>
+                   <label for="text1" class="col-6 col-form-label">{{task.name | titlecase}}</label> 
+                  <a href="" class="">{{task.name}}</a>
               </div>
             </div> 
           </form>
@@ -20,4 +21,46 @@
     </div>
   </div>
 </div>
+
+
+<!-- <div class="container">
+  <div class="row">
+      <div class="mx-auto col-sm-12">
+
+<div class="card">
+<div class="col-md-12">
+
+    <div class="card-header">
+        <h2 class="text-center">Task List</h2>
+    </div>
+
+    <div class="card-body">
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User Name</th>
+            
+            
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+              <td><a >{{task.id}}</a></td>
+              <td><a [routerLink]="">{{task.name | titlecase}}</a></td>
+            
+              <td><button class="btn btn-danger" (click)="deleteuser(user)"> Delete</button></td>
+            </tr>
+        </tbody>
+  </table>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div> -->
 

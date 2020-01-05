@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
 })
 export class UserRegistrationComponent implements OnInit {
 
-  topics = ['PM', 'Eng',' Client','Constructor'];
+  topics = ['PM', 'ENG',' CL','CON'];
 
   user: User= new User('','','','','');
 

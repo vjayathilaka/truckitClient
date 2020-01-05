@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../model/task';
 import { TaskService } from '../services/task.service';
+import { UserService } from '../services/user.service';
+import { User } from '../model/user';
+import { ProjectService } from '../services/project.service';
+import { Project } from '../model/project';
 
 @Component({
   selector: 'app-add-task',
@@ -10,15 +14,40 @@ import { TaskService } from '../services/task.service';
 export class AddTaskComponent implements OnInit {
 
 
-  task: Task = new Task('','','',[]);
+  task: Task = new Task('','','',null,'','');
 
-  constructor(private taskService: TaskService) { }
+  projectList: Project[];
+  constructorList: User[];
 
-  ngOnInit() {
+  public porjectName:'project.ProjectName'
+
+  public name:'User.name';
+  public userRole:'User.userRole';
+
+  constructor(private taskService: TaskService, private userService: UserService, private projectService: ProjectService) { 
+    this.userRole;
+    this.name;
+    this.porjectName;
   }
 
-  onSubmit(){
-    this.taskService.createTask(this.task)
+  ngOnInit() {
+    
+    this.userService.getUserById()
+    .then(data => 
+      this.constructorList= data as User[]
+    );
+
+    this.projectService.getProjects()
+    .subscribe(data => 
+      this.projectList= data);
+      //  as Project[]);
+     
+  }
+
+  saveTask(){
+
+    // alert(JSON.stringify(this.task));
+    this.taskService.saveTask(this.task)
     .subscribe( data => {
       alert("Task successfully Added.");
     });

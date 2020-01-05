@@ -1,3 +1,29 @@
-<p>
-  add-issues works!
-</p>
+<div class="container-fluid bg-light py-3">
+  <div class="row">
+      <div class="col-md-6 mx-auto">
+              <div class="card card-body">
+                  <h3 class="text-center mb-4">Create Issue</h3>
+                  
+                  <form #issueForm="ngForm" (ngSubmit)="createIssue()"  novalidate class="form" role="form" >
+
+                      {{issueForm.value | json}}
+
+                      <div class="form-group">
+                          <label >Issue Name</label>
+                          <input type="text" class="form-control" name="issuename" [(ngModel)]="issue.issueName" required #name="ngModel">
+                          <small class="text-danger" [class.d-none]="name.valid || name.untouched"> Issue name is required</small>
+                        </div>
+                    
+                      <div class="textarea">
+                      <label for="textarea">Issue discription</label>
+                      
+                          <textarea id="textarea" class="form-control mb-4" name="comment" placeholder="Textarea" [(ngModel)]="issue.comment" #comments="ngModel"></textarea>
+                      </div>
+                     
+                      <input class="btn btn-lg btn-primary btn-block" [disabled]="issueForm.form.invalid" value="Add Issue" type="submit">
+                  </form>
+                  
+              </div>
+      </div>
+  </div>
+</div>

@@ -1,9 +1,13 @@
-import { Task } from './task';
+// import { Task } from './task';
 
 export class Project{
     constructor(
       public id:String,
-      public name:string,
-      public tasks:Task[]
+      public projectName:string,
+      public clientId:String,
+      public deadline:String,
+      public startDate:String,
+      public engineerId: String,
+      public constructorId: String
     ) {}
 }

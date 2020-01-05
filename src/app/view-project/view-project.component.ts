@@ -13,7 +13,7 @@ export class ViewProjectComponent implements OnInit {
   constructor(private route:ActivatedRoute, private projectService:ProjectService) { }
 
   projectId:string;
-  project:Project = new Project('', '', null);
+  project:Project = new Project('', '','', '','','','');
 
   ngOnInit() {
 
@@ -24,6 +24,8 @@ export class ViewProjectComponent implements OnInit {
         this.project = response;
       }
     ); 
+
+    
   }
 
 }

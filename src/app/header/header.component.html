@@ -6,12 +6,15 @@
        
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Projects</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addProject" class="nav-link">Add New Project</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addtask" class="nav-link">Add Task</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addtask" class="nav-link">Create Task</a></li>
       <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addissues" class="nav-link">Add Issues</a></li> -->
+      
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="viewIssue" class="nav-link">View Issues</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/signin" class="nav-link">User Registration</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userlist" class="nav-link">System Users</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/constructors" class="nav-link">Constructors</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userprofile" class="nav-link">UserProfile</a></li>
+      <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/viewTask" class="nav-link">View Task</a></li> -->
+      <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userprofile" class="nav-link">UserProfile</a></li> -->
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
     
     </ul>

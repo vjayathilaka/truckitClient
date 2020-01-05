@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//pop-up window for issue resources.
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -23,6 +26,11 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { UserListComponent } from './user-list/user-list.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { AddIssuesComponent } from './add-issues/add-issues.component';
+import { ViewIssueComponent } from './view-issue/view-issue.component';
+import { IssueResourcesComponent } from './issue-resources/issue-resources.component';
+// import { BsDatePickerModule } from 'ngx-bootstrap/Datepicker';
+
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -41,15 +49,21 @@ import { AddIssuesComponent } from './add-issues/add-issues.component';
     UserRegistrationComponent,
     UserListComponent,
     AddTaskComponent,
-    AddIssuesComponent
+    AddIssuesComponent,
+    ViewIssueComponent,
+    IssueResourcesComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
+  entryComponents:[IssueResourcesComponent],
+  
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
   }, ConstructorService],

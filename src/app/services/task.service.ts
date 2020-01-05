@@ -17,10 +17,10 @@ export class TaskService {
     return this.httpClient.get<Task>(this.url+'/'+id);
   }
 
-  public createTask(task) {
-    return this.httpClient.post<Task>(this.url,task);
+  public saveTask(task) {
+    return this.httpClient.post<Task>('http://localhost:9090//tasks/ui/',task);
   }
 
-
+  
 
 }

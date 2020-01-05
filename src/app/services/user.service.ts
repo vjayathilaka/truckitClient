@@ -25,4 +25,11 @@ export class UserService {
     return this.httpClient.delete<User>("http://localhost:9090/users" + "/"+ user.id);
   }
 
+  //get asignee for add project and add task
+  public getUserById(){
+    // let users = 
+    return this.httpClient.get<User[]>("http://localhost:9090/users/ang").toPromise();
+    // return users;
+  }
+
 }

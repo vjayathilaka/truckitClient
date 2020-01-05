@@ -1,6 +1,6 @@
 <div class="jumbotron">
 <div class="row mt-4"></div>
-<h2 class="text-center">{{project.name| titlecase}}</h2>
+<h2 class="text-center">{{project.projectName| titlecase}}</h2>
 <div class="row">
     <div class="col-md-2">
     </div>
@@ -9,27 +9,65 @@
             <div class="form-group row">
               <label for="text1" class="col-3 col-form-label">Project Name:</label> 
               <div class="col-6">
-                  <label for="text1" class="col-6 col-form-label">{{project.name}}</label>
+                  <label for="text1" class="col-6 col-form-label">{{project.projectName}}</label>
               </div>
             </div>
 
             <div class="form-group row">
+                <label for="text1" class="col-3 col-form-label">Project ID:</label> 
+                <div class="col-6">
+                    <label for="text1" class="col-6 col-form-label">{{project.id}}</label>
+                </div>
+              </div>
+
+            <div class="form-group row">
+                <label for="text1" class="col-3 col-form-label">Project Deadline:</label> 
+                <div class="col-6">
+                    <label for="text1" class="col-6 col-form-label">{{project.deadline}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="text1" class="col-3 col-form-label">Assign Engineer:</label> 
+                <div class="col-6">
+                    <label for="text1" class="col-6 col-form-label">{{project.engineerId}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="text1" class="col-3 col-form-label">Assign Connstructor:</label> 
+                <div class="col-6">
+                    <label for="text1" class="col-6 col-form-label">{{project.constructorId}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="text1" class="col-3 col-form-label">Assign Client:</label> 
+                <div class="col-6">
+                    <label for="text1" class="col-6 col-form-label">{{project.clientId}}</label>
+                </div>
+              </div>
+              <!-- add image button -->
+              <button class="btn btn-info" (click)="viewProjectResource()" > View Resource</button>
+
+
+            <!-- <div class="form-group row">
                 <label for="text" class="col-3 col-form-label">Assign Tasks</label> 
                 <div class="col-6">
                     <ul class="list-group" *ngFor="let task of project.tasks">
                         <li class="list-group-item"><a [routerLink]="['/viewTask', task.id]">{{task.name}}</a></li>
                     </ul>
                 </div>
-            </div> 
+            </div>  -->
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                     <label for="text" class="col-3 col-form-label">Reported Issues</label> 
                     <div class="col-6">
-                        <ul class="list-group" *ngFor="let task of project.tasks">
-                            <li class="list-group-item"><a [routerLink]="['/viewTask', task.id]">{{task.name}}</a></li>
+                        <ul class="list-group" *ngFor="let issue of project.issues">
+                            <li class="list-group-item"><a [routerLink]="['/viewIssue', issue.id]">{{issue.name}}</a></li>
                         </ul>
                     </div>
-            </div> 
+            </div>  -->
 
           </form>
     </div>

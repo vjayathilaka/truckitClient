@@ -1,41 +1,103 @@
 <div class="container">         
 <div class="jumbotron">
   
-<h2 class="text-center" > Add Projects here..</h2>
+<h2 class="text-center" > Add New Projects </h2>
 
-<form class="border border-light p-5">
+<form class="border border-light p-5" #projectForm="ngForm">
 
+    <!-- {{projectForm.value | json}}  -->
+<div class="form-group col-md-10">
+    <h5> Enter project  name</h5>
 <div class="w3-half">
-  <input type="name" [(ngModel)]="project.name" id="name" class="form-control" placeholder="Enter project  name" name="name">
-
-  <input type="location" id="defaultRegisterFormLastName" class="form-control" placeholder="Enter project location">
-
-  <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+  <input type="name" [(ngModel)]="project.projectName" id="name" class="form-control" name="projectName" >
   
-  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+</div>
 </div>
 
-  <div class="input-group mb-4">
+<div class="form-group col-md-10">
+
+<h5> Project Assignee</h5>
+   <!-- not work  -->
+
+<div class="form-group">
+  <span>Select Client</span>
+<select [(ngModel)]="project.clientId"  name="clientId" class="custom-select" >
+  <option value="0"> Select Client</option>
+  <ng-container *ngFor="let user of userList"  >
+  <option *ngIf="user.userRole ==='CL'"  >{{user.name}}</option>
+</ng-container>
+</select>
+</div>
+
+<div class="form-group">
+  <span>Select Engineer</span>
+<select [(ngModel)]="project.engineerId"  name="engineerId" class="custom-select" >
+    <option value="0"> Select Engineer</option>
+    <ng-container *ngFor="let user of userList"  >
+    <option *ngIf="user.userRole ==='ENG'" >{{user.name}}</option>
+  </ng-container>
+  
+  </select>
+</div>
+
+<div class="form-group">
+  <span>Select Constructor</span>
+  <select [(ngModel)]="project.constructorId"  name="constructorId" class="custom-select" >
+      <option value="0"> Select Constructor</option>
+      <ng-container *ngFor="let user of userList"  >
+      <option *ngIf="user.userRole ==='CON'" >{{user.name}}</option>
+    </ng-container>
+    </select>
+
+  </div>
+
+</div>
+<!-- *ngIf="{{user.userRole}} ==='CL'" -->
+<!-- *ngIf="user.userRole ==='ENG'"
+*ngIf="user.userRole ==='CON'" -->
+<!-- *ngFor="let user of users" // value="{{user.name}}" // *ngIf="user.userRole ==='CL'"// [ngValue]="{{user.name}}" -->
+<!-- date picker -->
+<div class="form-group col-md-10">
+  <label for="projectEndDate">Dead Line of the project</label>
+  <input type="date" class="form-control" [(ngModel)]="project.deadline" name="deadline">
+</div>
+
+<div class="form-group col-md-10">
+  <label for="projectEndDate">Created date of the project :</label>
+  <!-- <input type="date" class="form-control" [(ngModel)]="project.startDate" name="startDate"> -->
+  <option [(ngModel)]="project.startDate" name="startDate">{{currentDate | date: 'yyyy-MM-dd'}}</option>
+</div>
+
+<!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" /> -->
+
+<button type="button" class="btn btn-success btn-s" 
+  (click)="uploader.uploadAll()" 
+  [disabled]="!uploader.getNotUploadedItems().length" >
+      Upload an File
+</button>
+
+  <div class="input-group col-md-10">
       <div class="input-group-prepend">
-          <span class="input-group-text">Upload</span>
+          <span class="input-group-text">Upload Project Folw Plan</span>
       </div>
       <div class="custom-file">
-          <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
-          <label class="custom-file-label" for="fileInput">prject plan</label>
+          <input type="file" name="photo"  class="custom-file-input" id="fileInput" aria-describedby="fileInput">
+          <label class="custom-file-label" for="fileInput">Select</label>
       </div>
   </div>
 
 
-         <select class="browser-default custom-select mb-4" id="select">
+         <!-- <select class="browser-default custom-select mb-4" id="select">
                <option value="" disabled="" selected="">Project type</option>
                 <option value="1">New Project</option>
                 <option value="2">Reported issue</option>
                 
-        </select>
+        </select> -->
 
-        <div class="textarea">
+
+        <div class="textarea col-md-10">
         <label for="textarea">Project discription</label>
-        <textarea id="textarea" class="form-control mb-4" placeholder="Textarea"></textarea>
+        <textarea id="textarea" class="form-control mb-4" [(ngModel)]="project.status" name="status" placeholder="Textarea"></textarea>
       </div>
 
         <button class="btn btn-success" (click)="createProject()" type="submit">Add project</button>

@@ -4,18 +4,55 @@
                 <div class="card card-body">
                     <h3 class="text-center mb-4">Create Task</h3>
                     
-                    <form #taskForm="ngForm" (ngSubmit)="onSubmit()"  novalidate class="form" role="form" >
+                    <form #taskForm="ngForm" (ngSubmit)="saveTask()"  novalidate class="form" role="form" >
+
+                        <!-- {{taskForm.value | json}} -->
 
                         <div class="form-group">
                             <label >Task Name</label>
-                            <input type="text" class="form-control" name="task" [(ngModel)]="task.name" required #name="ngModel">
-                            <small class="text-danger" [class.d-none]="task.valid || task.untouched"> Task Name is required</small>
+                            <input type="text" class="form-control" name="taskname" #taskname="ngModel" [(ngModel)]="task.taskName" required #name="ngModel">
+                            <small class="text-danger" [class.d-none]="name.valid || name.untouched"> Task name is required</small>
                           </div>
                       
                         <div class="textarea">
                         <label for="textarea">Task discription</label>
-                            <textarea id="textarea" class="form-control mb-4" placeholder="Textarea" [(ngModel)]="task.comments" #comments="ngModel"></textarea>
+                        
+                            <textarea id="textarea" class="form-control mb-4" name="comment" placeholder="Textarea" [(ngModel)]="task.comment" #comments="ngModel"></textarea>
                         </div>
+
+                        <div class="form-group col-md-12">
+
+                            <h5> Task Assignee</h5>
+                            
+                            <div class="form-group">
+                              <span>Select Constructor</span>
+                              <select [(ngModel)]="task.assignee"  name="taskAssignee" class="custom-select" >
+                                  <option value="0"> Select Constructor</option>
+                                  <ng-container *ngFor="let user of constructorList"  >
+                                  <option *ngIf="user.userRole ==='CON'" [ngValue]="user">{{user.name}}</option>
+                                </ng-container>
+                                </select>
+                            
+                              </div>
+                            
+                            </div>
+
+                            <div class="form-group col-md-12">
+
+                                <h5> Select Project</h5>
+                                
+                                <div class="form-group">
+                                  <span>Select Project</span>
+                                  <select [(ngModel)]="task.project"  name="assignedProject" class="custom-select" >
+                                      <option value="0"> Select Project</option>
+                                      <ng-container *ngFor="let project of projectList"  >
+                                      <option [ngValue]="project">{{project.projectName}}</option>
+                                    </ng-container>
+                                    </select>
+                                
+                                  </div>
+                                
+                                </div>
                        
                         <input class="btn btn-lg btn-primary btn-block" [disabled]="taskForm.form.invalid" value="Add Task" type="submit">
                     </form>

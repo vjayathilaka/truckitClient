@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { ProjectService } from '../services/project.service';
 import { Project } from '../model/project';
+import { User } from '../model/user';
+import { UserService } from '../services/user.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-project',
@@ -10,12 +14,33 @@ import { Project } from '../model/project';
 })
 export class AddProjectComponent implements OnInit {
 
-  project: Project = new Project('', '', null);
+  project: Project = new Project('', '','', '','','','');
 
-  constructor(private projectService: ProjectService) { }
+  userList: User[];
+  public name:'User.name';
+  public userRole:'User.userRole';
+  
+  currentDate = new Date();
+
+
+  constructor(private route:ActivatedRoute,private projectService: ProjectService,private userService: UserService) {
+    this.userRole;
+    this.name;
+   }
 
   ngOnInit() {
-  }
+    
+
+    // this.users = this.route.snapshot.params.id;
+    this.userService.getUserById()
+    .then(data => 
+      this.userList= data as User[]
+    );
+    
+    }
+ 
+  
+
 
   createProject(): void {
     this.projectService.createProject(this.project)
@@ -24,5 +49,16 @@ export class AddProjectComponent implements OnInit {
         });
 
   };
+
+  // getUserById(){
+  //   this.userService.getUserById()
+  //   .subscribe(data => 
+  //     this.userList= data
+  //   );
+
+  // }
+
+  
+
 
 }

@@ -10,7 +10,8 @@
                           
                         <form #userForm="ngForm" (ngSubmit)="onSubmit()"  novalidate class="form" role="form" >
 
-                            {{userForm.form.valid}}
+                          <!-- {{userForm.value | json}}  
+                          {{userForm.form.valid}} -->
 
                                 <div class="form-group">
                                   <label >User Name</label>
@@ -38,22 +39,48 @@
                                    </div> 
                                 </div>
 
-                                <div class="form-group">
-                                  <label >Select User Type</label>
-                                      <select class="custom-select" name="topic" [(ngModel)]="user.userRole">
-                                        <option value=""> User Type</option>
-                                        <option *ngFor="let topic of topics"> {{topic}}</option>
-                                      </select>
+                                <div class="form-group" [class.has-error]="userRole.touched && userRole.invalid">
+                               
+                               <!-- <div class="mb-3"> -->
+                                 <label >Select User Type</label>
+                                
+                                <div class="form-check">
+                                  <label >
+                                  <input type="radio" [(ngModel)]="user.userRole" required #userRole="ngModel" name="userRole" value="PM">
+                                  Project Manager</label>
+
                                 </div>
+
+                                <div class="form-check">
+                                  <label >
+                                  <input type="radio" [(ngModel)]="user.userRole" #userRole="ngModel" required name="userRole" value="ENG">
+                                  Engineer</label>
+                                  </div>
+
+                                  <div class="form-check">
+                                  <label >
+                                  <input type="radio" [(ngModel)]="user.userRole" required #userRole="ngModel" name="userRole" value="CON">
+                                  Constructor</label>
+                                </div>
+
+                                  <div class="form-check">
+                                  <label >
+                                        <input type="radio" [(ngModel)]="user.userRole" required #userRole="ngModel" name="userRole" value="CL">
+                                       Client</label>
+                                </div>
+                            <div *ngIf="userRole.untouched || userRole.invalid" class ="aler alert-danger">
+                              <small class="text-danger" >User Role Is Required</small>
+                            </div>
+                            </div>
 
                                 <div class="form-group">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
     
                                         <div class="col-lg-9">
                                                 
-                                                <button type="reset" class="btn btn-secondary" (click)="onClear()">Clear</button>
+                                                <button  type="reset" class="btn btn-secondary pull-right" (click)="onClear()">Clear</button>
                                                 
-                                                <button [disabled]="userForm.form.invalid" class="btn btn-primary">Sign up</button>
+                                                <button [disabled]="userForm.form.invalid" class="btn btn-primary pull-left">Sign up</button>
                                         </div>
                                     </div>
                           </form>

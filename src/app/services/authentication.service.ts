@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   authenticate(username, password) {
-    if (username === "hiran" && password === "123") {
-      sessionStorage.setItem('username', username)
-      return true;
-    } else {
-      return false;
-    }
+
+    return this.isValidUser(username, password);
+
+  }
+
+  public isValidUser(userName, password) {
+    let user = new User("",userName, "", "", password);
+    let isValidUser =  this.httpClient.post<User>("http://localhost:9090/loginAng", user);
+    return isValidUser;
   }
 
   isUserLoggedIn() {

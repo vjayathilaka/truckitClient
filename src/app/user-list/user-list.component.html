@@ -25,9 +25,26 @@
           <tbody>
               <tr *ngFor="let user of users">
                 <td><a >{{user.id}}</a></td>
-                <td><a [routerLink]="">{{user.name | titlecase}}</a></td>
+                <td><a [routerLink]="">{{user.name}}</a></td>
                 <td><a href="{{user.email}}">{{user.email}}</a></td>
-                <td><a >{{user.userRole}}</a></td>
+
+                <td *ngIf="user.userRole ==='PM'">Project Manager</td>
+                <td *ngIf="user.userRole ==='CL'">Client</td>
+                <td *ngIf="user.userRole ==='CON'">Constructor</td>
+                <td *ngIf="user.userRole ==='ENG'">Engineer</td>
+
+                <!-- <td [ngSwitch]="user.userRole" >
+
+                  <div >
+                  <span *ngSwitchCase="PM">Project Manager</span>
+                  <span *ngSwitchCase="CL">Client</span>
+                  <span *ngSwitchCase="CON">Constructor</span>
+                  <span *ngSwitchCase="Eng">Engineer</span>
+                  <span *ngSwitchDefault> Invalid User Role</span>
+                </div>
+                </td> -->
+                
+                
                 <td><button class="btn btn-danger" (click)="deleteuser(user)"> Delete</button></td>
               </tr>
           </tbody>
