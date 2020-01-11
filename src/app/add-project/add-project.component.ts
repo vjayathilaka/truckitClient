@@ -22,6 +22,11 @@ export class AddProjectComponent implements OnInit {
   
   currentDate = new Date();
 
+  public imagePath;
+  imgURL: any;
+  public message: string;
+  public image;
+
 
   constructor(private route:ActivatedRoute,private projectService: ProjectService,private userService: UserService) {
     this.userRole;
@@ -43,20 +48,40 @@ export class AddProjectComponent implements OnInit {
 
 
   createProject(): void {
-    this.projectService.createProject(this.project)
+
+    var form_data = new FormData();
+
+    form_data.append("image", this.image);
+
+    for ( var key in this.project ) {
+      form_data.append(key, this.project[key]);
+    }
+
+    this.projectService.createProject(form_data)
         .subscribe( data => {
           alert("Project created successfully.");
-        });
+    });
 
   };
 
-  // getUserById(){
-  //   this.userService.getUserById()
-  //   .subscribe(data => 
-  //     this.userList= data
-  //   );
-
-  // }
+  preview(files) {
+    this.image = files[0];
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
+ 
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result; 
+    }
+  }
 
   
 

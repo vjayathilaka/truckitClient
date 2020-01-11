@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Project } from '../model/project';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class ProjectService {
     return this.httpClient.delete<Project>("http://localhost:9090/projects" + "/"+ project.id);
   }
 
-  public createProject(project) {
-    return this.httpClient.post<Project>("http://localhost:9090/projects", project);
+  public createProject(data) {
+    return this.httpClient.post<Project>("http://localhost:9090/projects", data);
   }
 
   public getProjectById(id){

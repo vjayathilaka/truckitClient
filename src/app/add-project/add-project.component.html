@@ -1,6 +1,6 @@
-<div class="container bg-light py-2">         
+<div class="container bg-light py-2">
   <div class="jumbotron">
-  
+
     <h2 class="text-center" > <i class="fas fa-project-diagram"></i>Add New Projects </h2>
 
       <form class="border border-light p-5" autocomplete="off" #projectForm="ngForm">
@@ -21,7 +21,7 @@
 
 <!-- <div class="w3-half">
   <input type="name" [(ngModel)]="project.projectName" id="name" class="form-control" name="projectName" >
-  
+
 </div> -->
       </div>
 
@@ -37,8 +37,8 @@
         <!-- <div class="input-group">
           <option class="fas fa-mouse-pointer"></option>
         </div> -->
-        
-          
+
+
       <select [(ngModel)]="project.clientId"  name="clientId" required class="custom-select" >
         <option  value="0">  </option>
         <ng-container *ngFor="let user of userList"   >
@@ -54,7 +54,7 @@
             <ng-container *ngFor="let user of userList"  >
             <option *ngIf="user.userRole ==='ENG'" >{{user.name}}</option>
           </ng-container>
-          
+
           </select>
         </div>
 
@@ -100,8 +100,8 @@
 
 <!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" /> -->
 
-<!-- <button type="button" class="btn btn-success btn-s" 
-  (click)="uploader.uploadAll()" 
+<!-- <button type="button" class="btn btn-success btn-s"
+  (click)="uploader.uploadAll()"
   [disabled]="!uploader.getNotUploadedItems().length" >
       Upload an File
 </button> -->
@@ -113,7 +113,7 @@
                <option value="" disabled="" selected="">Project type</option>
                 <option value="1">New Project</option>
                 <option value="2">Reported issue</option>
-                
+
         </select> -->
 
 
@@ -123,10 +123,10 @@
       </div> -->
             <div class="btn col-md-10">
                     <button class="btn btn-s btn-success btn-block" (click)="createProject()" [disabled]="projectForm.form.invalid" type="submit"><i class="far fa-check-circle" style="font-size:8x;color:rgb(13, 14, 26)"></i>Create project</button>
-             </div>  
-      
+             </div>
+
       </form>
-   
+
   </div>
 
 </div>

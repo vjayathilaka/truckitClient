@@ -8,6 +8,7 @@ export class Project{
       public deadline:String,
       public status:String,
       public engineerId: String,
-      public constructorId: String
+      public constructorId: String,
+      
     ) {}
 }
