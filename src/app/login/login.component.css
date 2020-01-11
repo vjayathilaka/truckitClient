@@ -1,3 +1,32 @@
 .container{
-    background-color: rgb(182, 167, 236);
+    background-image: url("/assets/images/blog5-01.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    height:550px;
+    /* background-color: rgb(182, 167, 236); */
 }
+
+h1{
+    display: block;
+  font-size: 3em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: springgreen;
+
+}
+#log{
+    position: relative;
+    padding-left: 0em;
+    padding-right: 0em;;
+    margin-left: 0em;
+    margin-right: 0em;
+    margin-bottom: 0em;
+    margin-top: 0em;
+}
+
+

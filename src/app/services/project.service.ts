@@ -29,4 +29,8 @@ export class ProjectService {
   public getProjectById(id){
     return this.httpClient.get<Project>(this.url+'/'+id);
   }
+
+  // public getProjectImage(id){
+  //   return this.httpClient.get<any>("http://localhost:9090/app/file/download/project/"+id);
+  // }
 }

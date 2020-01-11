@@ -17,8 +17,6 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-interceptor.service';
 
-import { ConstructorService } from './constructor.service';
-import { ConstructorsComponent } from './constructors/constructors.component';
 import { ViewProjectComponent } from './view-project/view-project.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -42,7 +40,6 @@ import { IssueResourcesComponent } from './issue-resources/issue-resources.compo
     FooterComponent,
     LoginComponent,
     LogoutComponent,
-    ConstructorsComponent,
     ViewProjectComponent,
     ViewTaskComponent,
     UserProfileComponent,
@@ -66,7 +63,7 @@ import { IssueResourcesComponent } from './issue-resources/issue-resources.compo
   
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
-  }, ConstructorService],
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

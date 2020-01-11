@@ -4,6 +4,7 @@ import { IssueService } from '../services/issue.service';
 import { Issue } from '../model/issue';
 import { MatDialog } from '@angular/material/dialog';
 import { IssueResourcesComponent } from '../issue-resources/issue-resources.component';
+import { Project } from '../model/project';
 
 @Component({
   selector: 'app-view-issue',
@@ -16,7 +17,7 @@ export class ViewIssueComponent implements OnInit {
 
   issues : Issue[];
   issueId:string;
-  issue : Issue = new Issue(null,'',null);
+  issue : Issue = new Issue(null,'',null,null);
 
   ngOnInit() {
     
@@ -37,15 +38,12 @@ export class ViewIssueComponent implements OnInit {
 
     viewIssueResource(id: string){
       this.dialog.open(IssueResourcesComponent,  {
-        width: '330px',
-        height: '400px',
+        width: '700px',
+        height: '600px',
         data: {
           dataKey: id
         }});
     
     };
-
-  
-  
 
 }

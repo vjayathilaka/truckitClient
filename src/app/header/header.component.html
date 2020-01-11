@@ -1,21 +1,21 @@
 <header>
     <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
-    <div><a href="" class="navbar-brand">Truckit</a></div>
+    <div><a href="" class="navbar-brand"><i class="fas fa-home"></i> Truckit</a></div>
     
     <ul class="navbar-nav">
        
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Projects</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addProject" class="nav-link">Add New Project</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addtask" class="nav-link">Create Task</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link"><i class="far fa-eye"></i> View Projects</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addProject" class="nav-link"><i class="fab fa-product-hunt"></i> Add New Project</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addtask" class="nav-link"><i class="fas fa-tasks"></i> Create Task</a></li>
       <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
       <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addissues" class="nav-link">Add Issues</a></li> -->
       
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="viewIssue" class="nav-link">View Issues</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/signin" class="nav-link">User Registration</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userlist" class="nav-link">System Users</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="viewIssue" class="nav-link"><i class="fas fa-comment-alt-exclamation"></i> View Issues</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/signin" class="nav-link"><i class="far fa-registered"></i> User Registration</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userlist" class="nav-link"><i class="fas fa-users"></i> System Users</a></li>
       <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/viewTask" class="nav-link">View Task</a></li> -->
       <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userprofile" class="nav-link">UserProfile</a></li> -->
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> LogOut</a></li>
     
     </ul>
       </nav>

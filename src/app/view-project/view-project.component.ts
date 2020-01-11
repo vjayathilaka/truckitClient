@@ -15,6 +15,8 @@ export class ViewProjectComponent implements OnInit {
   projectId:string;
   project:Project = new Project('', '','', '','','','');
 
+  projectImage:any;
+
   ngOnInit() {
 
     this.projectId = this.route.snapshot.params.id;
@@ -25,7 +27,23 @@ export class ViewProjectComponent implements OnInit {
       }
     ); 
 
+    this.projectImage = "http://localhost:9090/app/file/download/project/"+this.projectId;
+
+    // this.projectService.getProjectImage(this.project.id).subscribe(
+    //   responce =>{ this.projectImage=responce;
+    //   }
+    // );
+
     
+  }
+  viewProjectResource(id: string){
+    // this.projectImage = "http://localhost:9090/app/file/download/project/"+this.project.id;
+    // this.projectService.getProjectImage(this.project.id).subscribe(
+    //     image =>{ this.projectImage=image;
+    //     }
+    // );
+
+
   }
 
 }

@@ -1,9 +1,0 @@
-[
-    {"id": 1, "name": "Nimal jayalath", "constructor_type": "General Engineer"},
-    {"id": 2, "name": "Saman bandara", "constructor_type": "Assistace Engineer"},
-    {"id": 3, "name": "Nishantha", "constructor_type": "General Engineer"},
-    {"id": 4, "name": "Rathanyake", "constructor_type": "General Engineer"},
-    {"id": 5, "name": "Jayaweera", "constructor_type": "General Contractor"},
-    {"id": 6, "name": "Rohana", "constructor_type": "Assistace Engineer"},
-    {"id": 7, "name": "Kamal", "constructor_type": "Assistace Engineer"}
-]

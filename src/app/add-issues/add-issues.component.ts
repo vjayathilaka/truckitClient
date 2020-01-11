@@ -9,7 +9,7 @@ import { IssueService } from '../services/issue.service';
 })
 export class AddIssuesComponent implements OnInit {
 
-  issue : Issue = new Issue(null,'',null);
+  issue : Issue = new Issue(null,'',null,null);
 
   constructor(private issueService:IssueService) { }
 

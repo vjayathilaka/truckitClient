@@ -6,7 +6,7 @@ export class Project{
       public projectName:string,
       public clientId:String,
       public deadline:String,
-      public startDate:String,
+      public status:String,
       public engineerId: String,
       public constructorId: String
     ) {}

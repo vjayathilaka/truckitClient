@@ -9,7 +9,6 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ViewProjectComponent } from './view-project/view-project.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
-import { ConstructorsComponent } from './constructors/constructors.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -31,7 +30,6 @@ const routes: Routes = [
   { path: 'viewPorject/:id', component: ViewProjectComponent, canActivate:[AuthGuardService]},
   { path: 'viewTask/:id', component: ViewTaskComponent, canActivate:[AuthGuardService]},
   { path: 'viewIssue', component: ViewIssueComponent, canActivate:[AuthGuardService]},
-  { path: 'constructors', component: ConstructorsComponent, canActivate:[AuthGuardService]},
   { path: 'userprofile', component: UserProfileComponent, canActivate:[AuthGuardService]}
 
 ];
