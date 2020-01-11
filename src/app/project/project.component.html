@@ -14,6 +14,7 @@
                 <tbody>
                     <tr *ngFor="let project of projects">
                       <td><a [routerLink]="['/viewPorject', project.id]">{{project.projectName | titlecase}}</a></td>
+                      <td><a [routerLink]="['/editPorject', project.id]">Edit</a></td>
                       <td><button class="btn btn-danger" (click)="deleteProject(project)"><i class="fa fa-trash" aria-hidden="true"></i>  Delete</button></td>
                     </tr>
                 </tbody>

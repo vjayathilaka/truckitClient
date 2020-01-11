@@ -27,8 +27,16 @@ export class ProjectService {
     return this.httpClient.post<Project>("http://localhost:9090/projects", data);
   }
 
+  public editProject(data) {
+    return this.httpClient.put<Project>("http://localhost:9090/projects", data);
+  }
+
   public getProjectById(id){
     return this.httpClient.get<Project>(this.url+'/'+id);
+  }
+
+  public getImage(imageUrl: string): Observable<Blob> {
+    return this.httpClient.get(imageUrl, { responseType: 'blob' });
   }
 
   // public getProjectImage(id){

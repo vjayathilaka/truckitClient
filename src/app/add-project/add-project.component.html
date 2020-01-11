@@ -42,7 +42,7 @@
       <select [(ngModel)]="project.clientId"  name="clientId" required class="custom-select" >
         <option  value="0">  </option>
         <ng-container *ngFor="let user of userList"   >
-        <option *ngIf="user.userRole ==='CL'"  >{{user.name}}</option>
+        <option *ngIf="user.userRole ==='CL'"  value="{{user.id}}">{{user.name}}</option>
       </ng-container>
       </select>
       </div>
@@ -52,7 +52,7 @@
         <select [(ngModel)]="project.engineerId" required  name="engineerId" class="custom-select" >
             <option value="0"> </option>
             <ng-container *ngFor="let user of userList"  >
-            <option *ngIf="user.userRole ==='ENG'" >{{user.name}}</option>
+            <option *ngIf="user.userRole ==='ENG'" value="{{user.id}}">{{user.name}}</option>
           </ng-container>
 
           </select>
@@ -63,7 +63,7 @@
           <select [(ngModel)]="project.constructorId" required  name="constructorId" class="custom-select" >
               <option value="0"> </option>
               <ng-container *ngFor="let user of userList"  >
-              <option *ngIf="user.userRole ==='CON'" >{{user.name}}</option>
+              <option *ngIf="user.userRole ==='CON'" value="{{user.id}}">{{user.name}}</option>
             </ng-container>
             </select>
 
@@ -77,12 +77,16 @@
                 <span class="input-group-text"><i class="fas fa-plus-square"></i>Upload Project Folw Plan</span>
             </div>
             <div class="custom-file">
-                <input type="file" name="photo"  class="custom-file-input" id="fileInput" aria-describedby="fileInput">
-                <label class="custom-file-label" for="fileInput">Select</label>
+
+              <span style="color:red;" *ngIf="message">{{message}}</span>
+              <input #file type="file" accept='image/*' (change)="preview(file.files)" />
+              <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+
             </div>
         </div>
 
-      </div>
+    </div>
 <!-- *ngIf="{{user.userRole}} ==='CL'" -->
 <!-- *ngIf="user.userRole ==='ENG'"
 *ngIf="user.userRole ==='CON'" -->

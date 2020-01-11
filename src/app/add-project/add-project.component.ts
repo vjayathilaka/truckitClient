@@ -14,12 +14,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddProjectComponent implements OnInit {
 
-  project: Project = new Project('', '','', '','','','');
+  project: Project = new Project('', '', '', '', '', '', '', '', '', '', '');
 
   userList: User[];
-  public name:'User.name';
-  public userRole:'User.userRole';
-  
+  public name: 'User.name';
+  public userRole: 'User.userRole';
   currentDate = new Date();
 
   public imagePath;
@@ -28,62 +27,57 @@ export class AddProjectComponent implements OnInit {
   public image;
 
 
-  constructor(private route:ActivatedRoute,private projectService: ProjectService,private userService: UserService) {
-    this.userRole;
-    this.name;
-   }
+  constructor(private route: ActivatedRoute, private projectService: ProjectService, private userService: UserService) {
+
+  }
 
   ngOnInit() {
-    
+
 
     // this.users = this.route.snapshot.params.id;
     this.userService.getUserById()
-    .then(data => 
-      this.userList= data as User[]
-    );
-    
-    }
- 
-  
+      .then(data =>
+        this.userList = data as User[]
+      );
+
+  }
 
 
   createProject(): void {
 
-    var form_data = new FormData();
+    const form_data = new FormData();
 
-    form_data.append("image", this.image);
+    form_data.append('image', this.image);
 
-    for ( var key in this.project ) {
+    // tslint:disable-next-line:forin
+    for (const key in this.project) {
       form_data.append(key, this.project[key]);
     }
 
     this.projectService.createProject(form_data)
-        .subscribe( data => {
-          alert("Project created successfully.");
-    });
+      .subscribe(data => {
+        alert('Project created successfully.');
+      });
 
-  };
+  }
 
   preview(files) {
     this.image = files[0];
-    if (files.length === 0)
+    if (files.length === 0) {
       return;
- 
-    var mimeType = files[0].type;
+    }
+
+    const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
+      this.message = 'Only images are supported.';
       return;
     }
- 
-    var reader = new FileReader();
+
+    const reader = new FileReader();
     this.imagePath = files;
-    reader.readAsDataURL(files[0]); 
-    reader.onload = (_event) => { 
-      this.imgURL = reader.result; 
-    }
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.imgURL = reader.result;
+    };
   }
-
-  
-
-
 }

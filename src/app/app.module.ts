@@ -26,6 +26,7 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { AddIssuesComponent } from './add-issues/add-issues.component';
 import { ViewIssueComponent } from './view-issue/view-issue.component';
 import { IssueResourcesComponent } from './issue-resources/issue-resources.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 // import { BsDatePickerModule } from 'ngx-bootstrap/Datepicker';
 
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -48,7 +49,8 @@ import { IssueResourcesComponent } from './issue-resources/issue-resources.compo
     AddTaskComponent,
     AddIssuesComponent,
     ViewIssueComponent,
-    IssueResourcesComponent
+    IssueResourcesComponent,
+    EditProjectComponent
 
   ],
   imports: [

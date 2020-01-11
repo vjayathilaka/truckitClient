@@ -13,7 +13,7 @@ export class ViewProjectComponent implements OnInit {
   constructor(private route:ActivatedRoute, private projectService:ProjectService) { }
 
   projectId:string;
-  project:Project = new Project('', '','', '','','','');
+  project:Project = new Project('', '','', '','','','', '', '', '', '');
 
   projectImage:any;
 
@@ -25,7 +25,7 @@ export class ViewProjectComponent implements OnInit {
       response => {
         this.project = response;
       }
-    ); 
+    );
 
     this.projectImage = "http://localhost:9090/app/file/download/project/"+this.projectId;
 
@@ -34,7 +34,7 @@ export class ViewProjectComponent implements OnInit {
     //   }
     // );
 
-    
+
   }
   viewProjectResource(id: string){
     // this.projectImage = "http://localhost:9090/app/file/download/project/"+this.project.id;

@@ -1,0 +1,80 @@
+<div class="jumbotron">
+  <div class="row mt-4"></div>
+  <h2 class="text-center">Edit Project</h2>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <form #projectForm="ngForm">
+        <div class="form-group row">
+          <label for="text1" class="col-3 col-form-label">Project Name:</label>
+          <div class="col-6">
+            <input class="form-control form-control-rounded" id="projectName" type="text" [(ngModel)]="project.projectName" name="projectName">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="text1" class="col-3 col-form-label">Project Deadline:</label>
+          <div class="col-6">
+            <input type="date" class="form-control form-control-rounded" [(ngModel)]="project.deadline" required name="deadline">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="text1" class="col-3 col-form-label">Assigned Engineer:</label>
+          <div class="col-6">
+            <select [(ngModel)]="project.engineerId" required  name="engineerId" class="custom-select" >
+              <option value="0"> </option>
+              <ng-container *ngFor="let user of userList"  >
+                <option *ngIf="user.userRole ==='ENG'" value="{{user.id}}">{{user.name}}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="text1" class="col-3 col-form-label">Assigned Connstructor:</label>
+          <div class="col-6">
+          <select [(ngModel)]="project.constructorId" required  name="constructorId" class="custom-select" >
+            <option value="0"> </option>
+            <ng-container *ngFor="let user of userList"  >
+              <option *ngIf="user.userRole ==='CON'" value="{{user.id}}">{{user.name}}</option>
+            </ng-container>
+          </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="text1" class="col-3 col-form-label">Assigned Client:</label>
+          <div class="col-6">
+            <select [(ngModel)]="project.clientId" required  name="clientId" class="custom-select" >
+              <option value="0"> </option>
+              <ng-container *ngFor="let user of userList"  >
+                <option *ngIf="user.userRole ==='CL'" value="{{user.id}}">{{user.name}}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <!-- add image button -->
+        <!-- <button class="btn btn-info" (click)="viewProjectResource()" > View Resource</button> -->
+
+        <div class="form-group row">
+          <label for="text1" class="col-3 col-form-label">Upload Project Folw Plan:</label>
+
+            <div class="col-6">
+              <span style="color:red;" *ngIf="message">{{message}}</span>
+              <input #file1 type="file" accept='image/*' (change)="preview(file1.files)" />
+              <img [src]="imgURL" height="200" *ngIf="imgURL">
+            </div>
+        </div>
+
+        <div class="btn col-md-10">
+          <button class="btn btn-s btn-success btn-block" (click)="editProject()" [disabled]="projectForm.form.invalid" type="submit"><i class="far fa-check-circle" style="font-size:8x;color:rgb(13, 14, 26)"></i>Edit project</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
+

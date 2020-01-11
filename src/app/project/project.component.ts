@@ -22,10 +22,17 @@ export class ProjectComponent implements OnInit {
   }
 
   deleteProject(project: Project): void {
-    this.projectService.deleteProject(project)
-      .subscribe( data => {
-        this.projects = this.projects.filter(u => u !== project);
-      })
-  };
+
+    // tslint:disable-next-line:prefer-const
+    let r = confirm('Do you want to delete this project');
+    // tslint:disable-next-line:triple-equals
+    if (r == true) {
+      this.projectService.deleteProject(project)
+        .subscribe( data => {
+          this.projects = this.projects.filter(u => u !== project);
+          alert('project deleted successfully.');
+        });
+    }
+  }
 
 }
